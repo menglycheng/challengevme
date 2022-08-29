@@ -8,6 +8,7 @@ const Card = () => {
   const [activity, getActivity] = useState(false);
   const domEl = useRef(null);
   const [num, setNum] = useState(0);
+  const API_URL = "http://www.boredapi.com/api/activity/";
   const downloadImage = async () => {
     const dataUrl = await htmlToImage.toPng(domEl.current);
 
@@ -18,12 +19,18 @@ const Card = () => {
     link.click();
   };
 
+  const getData = async () => {
+    try {
+      const activities = await axios.get(API_URL);
+
+      setData(activities.data); // set State
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
   useEffect(() => {
-    fetch("http://www.boredapi.com/api/activity/")
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-      });
+    getData();
     setNum(Math.floor(Math.random() * 10));
   }, [activity]);
   console.log(data);
