@@ -8,7 +8,7 @@ const Card = () => {
   const [activity, getActivity] = useState(false);
   const domEl = useRef(null);
   const [num, setNum] = useState(0);
-  const API_URL = "http://www.boredapi.com/api/activity/";
+  const API_URL = "https://www.boredapi.com/api/activity/";
   const downloadImage = async () => {
     const dataUrl = await htmlToImage.toPng(domEl.current);
 
