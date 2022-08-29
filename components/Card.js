@@ -8,7 +8,7 @@ const Card = () => {
   const [activity, getActivity] = useState(false);
   const domEl = useRef(null);
   const [num, setNum] = useState(0);
-  const API_URL = "https://www.boredapi.com/api/activity/";
+  const API_URL = "http://www.boredapi.com/api/activity/";
   const downloadImage = async () => {
     const dataUrl = await htmlToImage.toPng(domEl.current);
 
@@ -22,7 +22,7 @@ const Card = () => {
   const getData = async () => {
     const res = await fetch(API_URL);
     const result = await res.json();
-    setData(result)
+    setData(result);
     // try {
     //   const activities = await axios.get(API_URL);
 
