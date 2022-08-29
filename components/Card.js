@@ -20,20 +20,17 @@ const Card = () => {
   };
 
   const getData = async () => {
-    try {
-      const activities = await axios.get(API_URL);
+    const res = await fetch(API_URL);
+    const data = await res.json();
 
-      setData(activities.data); // set State
-    } catch (err) {
-      console.error(err.message);
-    }
+    setData(data);
   };
 
   useEffect(() => {
     getData();
     setNum(Math.floor(Math.random() * 10));
   }, [activity]);
-  console.log(data);
+  //   console.log(data);
   return (
     <div>
       <h2 className="text-white text-center space-x-2 text-base">

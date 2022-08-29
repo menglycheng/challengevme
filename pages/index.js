@@ -20,14 +20,3 @@ export default function Home() {
     </div>
   );
 }
-
-// export async function getServerSideProps(context) {
-//   const request = await fetch("http://www.boredapi.com/api/activity/").then(
-//     (res) => res.json()
-//   );
-//   return {
-//     props: {
-//       results: request,
-//     },
-//   };
-// }
