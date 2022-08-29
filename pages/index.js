@@ -9,10 +9,14 @@ export default function Home() {
       <Head>
         <title>ChallengeVme</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta
+          http-equiv="Content-Security-Policy"
+          content="upgrade-insecure-requests"
+        ></meta>
       </Head>
       <main className="mb-20">
         {/* <Header /> */}
-        <Card  />
+        <Card />
       </main>
       <footer className="absolute bottom-0">
         <Footer />
