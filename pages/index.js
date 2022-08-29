@@ -3,8 +3,7 @@ import Header from "../components/Header";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
 
-export default function Home(props) {
-  console.log(props)
+export default function Home() {
   return (
     <div className="flex px-2 h-screen w-screen flex-col text-white bg-[#D70F64] items-center justify-center py-2">
       <Head>
@@ -22,13 +21,13 @@ export default function Home(props) {
   );
 }
 
-export async function getServerSideProps(context) {
-  const request = await fetch("http://www.boredapi.com/api/activity/").then(
-    (res) => res.json()
-  );
-  return {
-    props: {
-      results: request,
-    },
-  };
-}
+// export async function getServerSideProps(context) {
+//   const request = await fetch("http://www.boredapi.com/api/activity/").then(
+//     (res) => res.json()
+//   );
+//   return {
+//     props: {
+//       results: request,
+//     },
+//   };
+// }

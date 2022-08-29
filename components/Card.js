@@ -20,16 +20,19 @@ const Card = () => {
   };
 
   const getData = async () => {
-    const res = await fetch(API_URL);
-    const data = await res.json();
+    try {
+      const activities = await axios.get(API_URL);
 
-    setData(data);
+      setData(activities.data); // set State
+    } catch (err) {
+      console.error(err.message);
+    }
   };
 
   useEffect(() => {
     getData();
     setNum(Math.floor(Math.random() * 10));
-  });
+  }, [activity]);
   //   console.log(data);
   return (
     <div>
