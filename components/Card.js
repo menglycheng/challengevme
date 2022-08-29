@@ -29,7 +29,7 @@ const Card = () => {
   useEffect(() => {
     getData();
     setNum(Math.floor(Math.random() * 10));
-  }, [activity]);
+  });
   //   console.log(data);
   return (
     <div>
