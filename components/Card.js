@@ -20,9 +20,9 @@ const Card = () => {
   };
 
   const getData = async () => {
-    const res = await fetch(API_URL).then((res) => {
-      setData(res.json());
-    });
+    const res = await fetch(API_URL);
+    const result = await res.json();
+    setData(result)
     // try {
     //   const activities = await axios.get(API_URL);
 
