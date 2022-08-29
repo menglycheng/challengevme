@@ -18,20 +18,12 @@ const Card = () => {
     link.click();
   };
 
-  const getData = async () => {
-    try {
-      const activities = await axios.get(
-        "http://www.boredapi.com/api/activity/"
-      );
-
-      setData(activities.data); // set State
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
-
   useEffect(() => {
-    getData();
+    fetch("http://www.boredapi.com/api/activity/")
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+      });
     setNum(Math.floor(Math.random() * 10));
   }, [activity]);
   console.log(data);
