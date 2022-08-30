@@ -19,6 +19,8 @@ const Card = () => {
     link.click();
   };
 
+  // At instance level
+
   const getData = async () => {
     try {
       setData(da[Math.floor(Math.random() * 196)]); // set State
@@ -34,7 +36,7 @@ const Card = () => {
   return (
     <div>
       <h2 className="text-white text-center space-x-2 text-base">
-        Let start to challenge with new thing together.
+        Let start to challenge with something new together.
       </h2>
       <div
         id="domEl"
