@@ -2,13 +2,13 @@ import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { ShareIcon } from "@heroicons/react/24/solid";
 import * as htmlToImage from "html-to-image";
-
+import da from "../components/Data";
 const Card = () => {
   const [data, setData] = useState({});
   const [activity, getActivity] = useState(false);
   const domEl = useRef(null);
   const [num, setNum] = useState(0);
-  const API_URL = "http://www.boredapi.com/api/activity/";
+
   const downloadImage = async () => {
     const dataUrl = await htmlToImage.toPng(domEl.current);
 
@@ -20,23 +20,17 @@ const Card = () => {
   };
 
   const getData = async () => {
-    const res = await fetch(API_URL);
-    const result = await res.json();
-    setData(result);
-    // try {
-    //   const activities = await axios.get(API_URL);
-
-    //   setData(activities.data); // set State
-    // } catch (err) {
-    //   console.error(err.message);
-    // }
+    try {
+      setData(da[Math.floor(Math.random() * 196)]); // set State
+    } catch (err) {
+      console.error(err.message);
+    }
   };
 
   useEffect(() => {
     getData();
     setNum(Math.floor(Math.random() * 10));
   }, [activity]);
-  //   console.log(data);
   return (
     <div>
       <h2 className="text-white text-center space-x-2 text-base">
